@@ -1,0 +1,159 @@
+<div class="bo-con">
+  <div class="box-div">
+    <div class="email-templates-heading">
+      <img src='/assets/email-temp.png' alt='' />
+      <p>Email Templates</p>
+    </div>
+    <div class="email-templates">
+      <div class="emails" (click)="loadTemplate('event-invitation')">
+        <img src="/assets/image6.png" alt="" />
+        <div class="emails-text">
+          <p class="emails-head">Event Invitation</p>
+          <p class="emails-desc">Template for inviting people to a corporate event,
+            conference, webinar, or social gathering.</p>
+        </div>
+      </div>
+      <div class="emails" (click)="loadTemplate('event-invitation')">
+        <img src="/assets/image5.png" alt="" />
+        <div class="emails-text">
+          <p class="emails-head">Job Application Follow-Up</p>
+          <p class="emails-desc">Template for following up on a job application after
+            submitting a resume and cover letter.</p>
+        </div>
+      </div>
+      <div class="emails" (click)="loadTemplate('event-invitation')">
+        <img src="/assets/image4.png" alt="" />
+        <div class="emails-text">
+          <p class="emails-head">Sales Follow-Up</p>
+          <p class="emails-desc">Template for inviting people to a corporate event,
+            conference, webinar, or social gathering.</p>
+        </div>
+      </div>
+      <div class="emails" (click)="loadTemplate('event-invitation')">
+        <img src="/assets/image3.png" alt="" />
+        <div class="emails-text">
+          <p class="emails-head">Contract Renewal Reminder</p>
+          <p class="emails-desc">Template for inviting people to a corporate event,
+            conference, webinar, or social gathering.</p>
+        </div>
+      </div>
+      <div class="emails" (click)="loadTemplate('event-invitation')">
+        <img src="/assets/image2.png" alt="" />
+        <div class="emails-text">
+          <p class="emails-head">Apology Email</p>
+          <p class="emails-desc">Template for inviting people to a corporate event,
+            conference, webinar, or social gathering.</p>
+        </div>
+      </div>
+      <div class="emails" (click)="loadTemplate('event-invitation')">
+        <img src="/assets/image1.png" alt="" />
+        <div class="emails-text">
+          <p class="emails-head">Newsletter Sub Confirmation</p>
+          <p class="emails-desc">Template for inviting people to a corporate event,
+            conference, webinar, or social gathering.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="email-templates-heading">
+      <img src='/assets/campaigns.png' alt='' />
+      <p>Campaigns</p>
+    </div>
+    <div class="campaigns">
+      <div class="container-graph">
+        <div class="circle-container">
+          <svg width="100" height="100" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle r="40" cx="40" cy="40" fill="transparent" stroke="#ccc" stroke-width="8" />
+            <circle r="40" cx="40" cy="40" fill="transparent" [attr.stroke]="getStrokeColor(percentage)"
+              stroke-width="8" [attr.stroke-dasharray]="circumference" [attr.stroke-dashoffset]="dashoffset"
+              transform="rotate(-70, 40, 40)" />
+          </svg>
+          <div class="percentage">
+            <p>{{ percentage }}%</p>
+          </div>
+          <p class="status">Active</p>
+        </div>
+
+        <div class="circle-container">
+          <svg width="100" height="100" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle r="40" cx="40" cy="40" fill="transparent" stroke="#ccc" stroke-width="8" />
+            <circle r="40" cx="40" cy="40" fill="transparent" [attr.stroke]="getStrokeColor(percentage)"
+              stroke-width="8" [attr.stroke-dasharray]="circumference" [attr.stroke-dashoffset]="Sdashoffset"
+              transform="rotate(-70, 40, 40)" />
+          </svg>
+          <div class="percentage">
+            <p>{{ Spercentage }}%</p>
+          </div>
+          <p class="status">Pending</p>
+
+        </div>
+
+        <div class="circle-container">
+          <svg width="100" height="100" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle r="40" cx="40" cy="40" fill="transparent" stroke="#ccc" stroke-width="8" />
+            <circle r="40" cx="40" cy="40" fill="transparent" [attr.stroke]="getStrokeColor(percentage)"
+              stroke-width="8" [attr.stroke-dasharray]="circumference" [attr.stroke-dashoffset]="Pdashoffset"
+              transform="rotate(-70, 40, 40)" />
+          </svg>
+          <div class="percentage">
+            <p>{{ Ppercentage }}%</p>
+          </div>
+          <p class="status">Spam</p>
+
+        </div>
+        <div class="circle-container">
+          <svg width="100" height="100" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle r="40" cx="40" cy="40" fill="transparent" stroke="#ccc" stroke-width="8" />
+            <circle r="40" cx="40" cy="40" fill="transparent" [attr.stroke]="getStrokeColor(percentage)"
+              stroke-width="8" [attr.stroke-dasharray]="circumference" [attr.stroke-dashoffset]="Qdashoffset"
+              transform="rotate(-70, 40, 40)" />
+          </svg>
+          <div class="percentage">
+            <p>{{ Qpercentage }}%</p>
+          </div>
+          <p class="status">Sent</p>
+
+        </div>
+      </div>
+      <div class='campaigns-text'>
+        <p class="emails-head">Schedule</p>
+        <p class="emails-desc">2024 <svg width="8" height="4" viewBox="0 0 8 4" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4L0 1L1.33396 0L4 2L6.66604 0L8 1L4 4Z" fill="#505868" />
+          </svg>
+        </p>
+        <div class="campaigns-cln">
+          <p>SR.</p>
+          <p>DATE &amp; TIME</p>
+          <p>TARGET</p>
+          <p>STATUS</p>
+          <p>ACTION</p>
+        </div>
+        <div class="campaigns-row">
+          <p>1</p>
+          <p class="margin">5 Feb-8:30 PM</p>
+          <p class="margin1">Health care</p>
+          <div class="campaigns-btn">
+           <div class="campaigns-btn-icon">
+            <mat-icon style="cursor: pointer">done</mat-icon>
+           </div>
+                         <p>Sent</p>              
+          </div>
+          <p>View &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delete</p>
+        </div>
+        <div class="campaigns-row">
+          <p>2</p>
+          <p class="margin">20 Feb-10:00 AM</p>
+          <p class="margin">Business</p>
+          <div class="campaigns-btn" style="background: #505868">
+            <div class="campaigns-btn-icons">
+             <mat-icon style="cursor: pointer">close</mat-icon>
+            </div>
+          <p>Cancel</p>              
+           </div>
+          <p>View &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delete</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

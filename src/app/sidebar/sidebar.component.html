@@ -1,0 +1,16 @@
+<div>
+<div class="sidebar" [ngStyle]="{'left':  (isOpen$ | async) ? '0px' : '-100%'}" [class.sidebar-closed]=" !(isOpen$ | async)">
+<div class="sidebar-header">
+   <img src="/assets/rizkly.png" alt=""/>
+   <div class="sidebar-border"></div>
+
+</div>
+
+</div> 
+<div class="sidebar-openclose"  (click)="toggleSidebar()" [ngStyle]="{'left':  (isOpen$ | async) ? '291px' : '0px'}">
+    <svg [ngStyle]="{'transform':  (isOpen$ | async) ? 'rotate(0deg)' : 'rotate(180deg)'}"  width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.24971 12.9188L14.9055 17.5145C15.8375 18.1597 17.1083 17.4877 17.1013 16.3548L17.0476 7.73292C17.0405 6.59994 15.7614 5.9439 14.8375 6.59967L8.2395 11.2799C8.10845 11.3729 8.00175 11.4961 7.92845 11.6392C7.85515 11.7822 7.8174 11.9408 7.8184 12.1015C7.8194 12.2622 7.85912 12.4203 7.9342 12.5624C8.00928 12.7045 8.11751 12.8274 8.24971 12.9188Z" fill="white"/>
+    </svg>
+
+</div>
+</div>
