@@ -13,6 +13,9 @@ export class SidebarStateService {
 
   private editorVisible = new BehaviorSubject<boolean>(false);
   editorVisible$ = this.editorVisible.asObservable();
+  updateStatus(newStatus: string) {
+    this.status.next(newStatus);
+  }
 
   private templateContentSource = new BehaviorSubject<string>('');
   currentTemplateContent = this.templateContentSource.asObservable();
