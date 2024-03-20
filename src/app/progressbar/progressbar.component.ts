@@ -39,7 +39,10 @@ export class ProgressbarComponent {
 
 
   }
-
+  updateStatustoRecipients(newStatus: string) {
+    this.status = newStatus;
+    this.sidebarStateService.updateStatus(newStatus); 
+  }
   ngOnDestroy() {
     this.statusSubscription.unsubscribe();
   }

@@ -1,13 +1,20 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TemplateComponent } from './template/template.component'; 
+// import { NgModule } from '@angular/core';
+// import { RouterModule, Routes } from '@angular/router';
+// import { TemplateModule } from './template/template.module';
 
-const routes: Routes = [
-  { path: 'shop', loadChildren: () => import('./template/template.component').then(m => m.TemplateComponent) },
-];
+// function loadModuleWithDelay(path: string): () => Promise<any> {
+//   return () => new Promise(resolve => {
+//     setTimeout(() => resolve(import(path)), 3000); // Delay for 3 seconds
+//   });
+// }
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+ 
+// const routes: Routes = [
+//    { path: 'lazy', loadChildren: loadModuleWithDelay('./template/template.module').then(m => m.TemplateModule) }
+// ];
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }

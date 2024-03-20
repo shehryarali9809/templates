@@ -1,10 +1,10 @@
 <div class="progress-bar-div">
     <div>
       <div class="progress-bar-text">
-        <p [class.tex-color]="status === 'Templates'">Templates</p>
-        <p [class.tex-color]="status === 'Edit'">Edit</p>
-        <p [class.tex-color]="status === 'Recipients'">Recipients </p>
-        <p [class.tex-color]="status === 'Delivery'">Delivery</p>
+        <p [class.tex-color]="status === 'Templates'" (click)="updateStatustoRecipients('Templates')">Templates</p>
+        <p [class.tex-color]="status === 'Edit'" (click)="updateStatustoRecipients('Edit')">Edit</p>
+        <p [class.tex-color]="status === 'Recipients'" (click)="updateStatustoRecipients('Recipients')">Recipients </p>
+        <p [class.tex-color]="status === 'Delivery'" (click)="updateStatustoRecipients('Delivery')">Delivery</p>
       </div>
       <div class="progress-bar">
         <div class="progress-bar-status" [ngStyle]="{'left': getMarginLeft()}"></div>

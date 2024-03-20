@@ -5,7 +5,8 @@
   <div class='templates-div' [ngStyle]="{'left':  (isOpen$ | async) ? '291px' : '0px'}">
     <app-progressbar></app-progressbar>
     <app-editor *ngIf="editorVisible$ | async"></app-editor>
-    <app-template *ngIf="(editorVisible$ | async) === false" [percentage]="80" [Spercentage]="30" [Ppercentage]="28" [Qpercentage]="70"></app-template>
+    <app-template *ngIf="templateVisible$ | async" [percentage]="80" [Spercentage]="30" [Ppercentage]="28" [Qpercentage]="70"></app-template>
+    <app-recipients *ngIf="recipientsVisible$ | async"></app-recipients>
+    <app-delivery *ngIf="deliveryVisible$ | async"></app-delivery>
   </div>
-
 </div>
