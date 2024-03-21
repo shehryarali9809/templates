@@ -1,1 +1,21 @@
-<p>recipients works!</p>
+<div class="main-section">
+  <div class="main-heading">
+    <p>Add Recipients</p>
+  </div>
+  <div>
+    <div class="first-box">
+            <div class="radio-btn">
+                <div class="align-items-center">
+                    <p-radioButton name="recipientType" value="CSV/Excel" [(ngModel)]="recipientType" (click)="logSelectedValue(recipientType)"></p-radioButton>
+                    <label for="recipientType1" class="label">Add CSV/Excel Sheet</label>
+                </div>
+                
+                <div class="align-items-center">
+                    <p-radioButton name="recipientType" value="Manual" [(ngModel)]="recipientType" (click)="logSelectedValue(recipientType)"></p-radioButton>
+                    <label for="recipientType2" class="label">Manual Users</label>
+                </div>
+        </div>
+        <p class="first-box-text">Select the audience you want to sent your email campaign. </p>
+    </div>
+  </div>
+</div>
