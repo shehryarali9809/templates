@@ -102,5 +102,20 @@ export const emailTemplatesContent: EmailTemplatesContent = {
       "<div>[Your Name]</div>",
       "<div>[Your Email]</div>"
     ]
+  },
+  'Newsletter': {
+    imgSrc: '/assets/image1.png',
+    emailHead: 'Newsletter Confirmation',
+    emailDesc: 'Template for confirming a user’s subscription to your newsletter.',
+    content: [
+      "<div><strong>Subject: Newsletter Subscription Confirmation</strong></div>",
+      "<br>",
+      "<div><strong>Hello,</strong></div>",
+      "<div>Thank you for subscribing to our newsletter! You will now receive the latest news and updates from [Company/Service].</div>",
+      "<div>We're excited to have you with us.</div>",
+      "<div><strong>Best regards,</strong></div>",
+      "<div>[Your Name]</div>",
+      "<div>[Your Email]</div>"
+    ]
   }
 };
