@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SidebarStateService {
-  private isOpen = new BehaviorSubject<boolean>(true);
+  private isOpen = new BehaviorSubject<boolean>(false);
   isOpen$ = this.isOpen.asObservable();
 
   private status = new BehaviorSubject<string>("Templates");

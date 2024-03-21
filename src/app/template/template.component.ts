@@ -6,9 +6,13 @@ import { CommonModule } from '@angular/common';
 import { ProgressbarComponent } from '../progressbar/progressbar.component'; 
 import { Chart, registerables } from 'chart.js';
 import { HttpClient } from '@angular/common/http';
-import {invitationEmailContent} from '../email-templates/event-invitation'
+import {emailTemplatesContent} from '../email-templates/emails'
 Chart.register(...registerables);
-
+interface EmailTemplate {
+  imgSrc: string;
+  emailHead: string;
+  emailDesc: string;
+}
 @Component({
   selector: 'app-template',
   standalone: true,
@@ -18,26 +22,41 @@ Chart.register(...registerables);
 })
 
 export class TemplateComponent implements OnInit {
+  emailTemplates = Object.keys(emailTemplatesContent).map(key => ({
+    imgSrc: emailTemplatesContent[key].imgSrc,
+    emailHead: emailTemplatesContent[key].emailHead,
+    emailDesc: emailTemplatesContent[key].emailDesc,
+  }));
+
   @Input() percentage: number = 0;
   @Input() Spercentage: number = 0;
   @Input() Ppercentage: number = 0;
   @Input() Qpercentage: number = 0;
   isOpen$ = this.sidebarStateService.isOpen$;
 
-  constructor(private http: HttpClient, private sidebarStateService: SidebarStateService) {}
+  displayedTemplates: EmailTemplate[] = [];
+  showAll = false; 
+  buttonText = 'Show More';
+  constructor(private http: HttpClient, private sidebarStateService: SidebarStateService) {
+  this.displayedTemplates = this.emailTemplates.slice(0, 6);
+
+  }
+  shouldShowButton(): boolean {
+    return this.emailTemplates.length > 6;
+  }
+  toggleShowAll() {
+    this.showAll = !this.showAll;
+    this.displayedTemplates = this.showAll ? this.emailTemplates : this.emailTemplates.slice(0, 6);
+    this.buttonText = this.showAll ? 'Show Less' : 'Show More';
+  }
   async loadTemplate(templateKey: string) {
     let templateContent = `<p>Content of ${templateKey} not found</p>`;
-  
-    try {
-      if (templateKey === 'event-invitation') {
-        const templateModule = await import('../email-templates/event-invitation');
-        templateContent = templateModule.invitationEmailContent.join('');
-      }
-      // Add more conditions here for other templates
-    } catch (error) {
-      console.error('Error loading the template:', error);
+      const template = emailTemplatesContent[templateKey];
+    if (template && template.content) {
+      templateContent = template.content.join('');
+    } else {
+      console.error('Error loading the template: Template not found');
     }
-  
     this.sidebarStateService.loadTemplateContent(templateContent);
     this.sidebarStateService.showEditor(); 
   }

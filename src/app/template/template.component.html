@@ -5,60 +5,22 @@
       <p>Email Templates</p>
     </div>
     <div class="email-templates">
-      <div class="emails" (click)="loadTemplate('event-invitation')">
-        <img src="/assets/image6.png" alt="" />
+      <div class="emails" *ngFor="let template of displayedTemplates" (click)="loadTemplate(template.emailHead)">
+        <img [src]="template.imgSrc" alt="" />
         <div class="emails-text">
-          <p class="emails-head">Event Invitation</p>
-          <p class="emails-desc">Template for inviting people to a corporate event,
-            conference, webinar, or social gathering.</p>
+          <p class="emails-head">{{ template.emailHead }}</p>
+          <p class="emails-desc">{{ template.emailDesc }}</p>
         </div>
       </div>
-      <div class="emails" (click)="loadTemplate('event-invitation')">
-        <img src="/assets/image5.png" alt="" />
-        <div class="emails-text">
-          <p class="emails-head">Job Application Follow-Up</p>
-          <p class="emails-desc">Template for following up on a job application after
-            submitting a resume and cover letter.</p>
-        </div>
+      <div class='showMore-btn' *ngIf="shouldShowButton()">
+        <p class='showMore' (click)="toggleShowAll()">{{ buttonText }}</p>
       </div>
-      <div class="emails" (click)="loadTemplate('event-invitation')">
-        <img src="/assets/image4.png" alt="" />
-        <div class="emails-text">
-          <p class="emails-head">Sales Follow-Up</p>
-          <p class="emails-desc">Template for inviting people to a corporate event,
-            conference, webinar, or social gathering.</p>
-        </div>
-      </div>
-      <div class="emails" (click)="loadTemplate('event-invitation')">
-        <img src="/assets/image3.png" alt="" />
-        <div class="emails-text">
-          <p class="emails-head">Contract Renewal Reminder</p>
-          <p class="emails-desc">Template for inviting people to a corporate event,
-            conference, webinar, or social gathering.</p>
-        </div>
-      </div>
-      <div class="emails" (click)="loadTemplate('event-invitation')">
-        <img src="/assets/image2.png" alt="" />
-        <div class="emails-text">
-          <p class="emails-head">Apology Email</p>
-          <p class="emails-desc">Template for inviting people to a corporate event,
-            conference, webinar, or social gathering.</p>
-        </div>
-      </div>
-      <div class="emails" (click)="loadTemplate('event-invitation')">
-        <img src="/assets/image1.png" alt="" />
-        <div class="emails-text">
-          <p class="emails-head">Newsletter Sub Confirmation</p>
-          <p class="emails-desc">Template for inviting people to a corporate event,
-            conference, webinar, or social gathering.</p>
-        </div>
-      </div>
-
-    </div>
+      <div class='campaigns-head'>
     <div class="email-templates-heading">
       <img src='/assets/campaigns.png' alt='' />
       <p>Campaigns</p>
     </div>
+  </div>
     <div class="campaigns">
       <div class="container-graph">
         <div class="circle-container">

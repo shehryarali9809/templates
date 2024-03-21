@@ -7,7 +7,7 @@ import { ProgressbarComponent } from './progressbar/progressbar.component';
 import { EditorComponent } from './editor/editor.component'; 
 import { RecipientsComponent } from './recipients/recipients.component'; 
 import { DeliveryComponent } from './delivery/delivery.component'; 
-
+import { emailTemplatesContent } from './email-templates/emails';
 import { FormsModule } from '@angular/forms';
 import { SidebarStateService } from './shared.service';
 import { CommonModule } from '@angular/common';
@@ -50,5 +50,30 @@ export class AppComponent {
     this.templateVisible$ = this.sidebarStateService.status$.pipe(
       map(status => status === 'Templates')
     );
+  }
+
+  handleContentSave(updatedContent: string) {
+    const subjectLine = updatedContent.split('\n')[0];
+    const subjectMatch = subjectLine.match(/<div><strong>Subject: (.+?) <\/strong><\/div>/);
+    const newSubject = subjectMatch ? subjectMatch[1] : null;
+
+    if (newSubject) {
+      const templateKey = Object.keys(emailTemplatesContent).find(key => emailTemplatesContent[key].emailHead === newSubject);
+
+      if (templateKey) {
+        emailTemplatesContent[templateKey].content = updatedContent.split('\n');
+      } else {
+        emailTemplatesContent[newSubject] = {
+          imgSrc: '/assets/default-image.png',
+          emailHead: newSubject,
+          emailDesc: 'New template based on editor content',
+          content: updatedContent.split('\n')
+        };
+      }
+      this.saveChangesToServer(emailTemplatesContent);
+    }
+  }
+  saveChangesToServer(updatedTemplates: any) {
+    console.log('Updated templates sent to server:', updatedTemplates);
   }
 }
