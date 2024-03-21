@@ -55,11 +55,11 @@ export class ProgressbarComponent {
       case 'Templates':
         return '16px';
       case 'Edit':
-        return '177px'; 
+        return '152px'; 
       case 'Recipients':
-        return '332px';
+        return '289px';
       case 'Delivery':
-        return '506px';
+        return '444px';
       default:
         return '0%';
     }

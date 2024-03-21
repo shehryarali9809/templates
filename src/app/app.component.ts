@@ -64,7 +64,7 @@ export class AppComponent {
         emailTemplatesContent[templateKey].content = updatedContent.split('\n');
       } else {
         emailTemplatesContent[newSubject] = {
-          imgSrc: '/assets/default-image.png',
+          imgSrc: '/assets/image1.png',
           emailHead: newSubject,
           emailDesc: 'New template based on editor content',
           content: updatedContent.split('\n')

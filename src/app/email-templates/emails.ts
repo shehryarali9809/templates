@@ -102,8 +102,9 @@ export const emailTemplatesContent: EmailTemplatesContent = {
       "<div>[Your Name]</div>",
       "<div>[Your Email]</div>"
     ]
-  },
-  'Newsletter': {
+  }
+,
+  'Newsletter ': {
     imgSrc: '/assets/image1.png',
     emailHead: 'Newsletter Confirmation',
     emailDesc: 'Template for confirming a user’s subscription to your newsletter.',

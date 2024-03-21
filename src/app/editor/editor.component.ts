@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { SidebarStateService } from '../shared.service';
 import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-editor',
   standalone: true,
-  imports: [CommonModule,EditorModule,FormsModule],
+  imports: [CommonModule,EditorModule,FormsModule,MatIconModule],
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.sass']
 })

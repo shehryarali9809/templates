@@ -84,7 +84,7 @@
             <path d="M4 4L0 1L1.33396 0L4 2L6.66604 0L8 1L4 4Z" fill="#505868" />
           </svg>
         </p>
-        <div class="campaigns-cln">
+        <!-- <div class="campaigns-cln">
           <p>SR.</p>
           <p>DATE &amp; TIME</p>
           <p>TARGET</p>
@@ -114,7 +114,30 @@
           <p>Cancel</p>              
            </div>
           <p>View &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delete</p>
-        </div>
+        </div> -->
+        <table class="table">
+          <tr class="campaigns-cln">
+            <td>SR.</td>
+            <td class='margin'>DATE & TIME</td>
+            <td>TARGET</td>
+            <td>STATUS</td>
+            <td>ACTION</td>
+          </tr>
+          <tr *ngFor="let row of rows; let i = index" class="campaigns-row">
+            <td>{{ i + 1 }}</td>
+            <td class='margin'>{{ row.date }}</td>
+            <td>{{ row.target }}</td>
+            <td>
+              <div class="campaigns-btn" [style.background]="row.status === 'Sent' ? '' : '#505868'">
+                <div class="campaigns-btn-icons">
+                  <mat-icon style="cursor: pointer">{{ row.status === 'Sent' ? 'done' : 'close' }}</mat-icon>
+                </div>
+                <p>{{ row.status }}</p>
+              </div>
+            </td>
+            <td>View &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delete</td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>

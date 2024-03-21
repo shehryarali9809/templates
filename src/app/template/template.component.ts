@@ -27,7 +27,12 @@ export class TemplateComponent implements OnInit {
     emailHead: emailTemplatesContent[key].emailHead,
     emailDesc: emailTemplatesContent[key].emailDesc,
   }));
-
+  rows = [
+    { date: '5 Feb-8:30 PM', target: 'Health care', status: 'Sent' },
+    { date: '20 Feb-10:00 AM', target: 'Business', status: 'Pending' },
+    { date: '20 Feb-10:00 AM', target: 'Business', status: 'Pending' },
+    { date: '20 Feb-10:00 AM', target: 'Business in Health Care', status: 'Pending' },
+  ];
   @Input() percentage: number = 0;
   @Input() Spercentage: number = 0;
   @Input() Ppercentage: number = 0;

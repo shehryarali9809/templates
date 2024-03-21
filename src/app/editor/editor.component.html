@@ -1,6 +1,10 @@
+<div class="editor-section">
 <div class="editor" 
 >
-<button (click)="saveContent()">Save</button>
+<!-- <button (click)="saveContent()">Save</button> -->
+<div class="editor-heading">
+  <p>Template Editor</p>
+</div>
 <editor
 apiKey="jdo0ezd8nc2oa2w5pwc8m03jdn8ffj1rgj2ttcz95l9568ct"
 [(ngModel)]="content"
@@ -19,4 +23,13 @@ class="box"
     resize: false
 }"
 ></editor>
+</div>
+<div class="editor-setting-box">
+<div class="editor-setting">
+<div class="editor-setting-btn">
+  <p>Template Setting</p>
+  <mat-icon>arrow_drop_down</mat-icon>
+</div>
+</div>
+</div>
 </div>
