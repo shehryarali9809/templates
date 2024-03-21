@@ -10,8 +10,8 @@
         <div class="progress-bar-status" [ngStyle]="{'left': getMarginLeft()}"></div>
       </div>
     </div>
-    <div class="create-btn" (click)="onCreateNewClick()">
-      <mat-icon style="cursor: pointer">add</mat-icon>
+    <div class="create-btn" *ngIf="status === 'Templates'" (click)="onCreateNewClick()">
+      <mat-icon  style="cursor: pointer">add</mat-icon>
       <p>Create New</p>
     </div>
   </div>

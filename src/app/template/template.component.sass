@@ -155,10 +155,14 @@
 
 .campaigns-text
   padding-left: 20px
-  padding-right: 20px
 .campaigns-cln
   width: 100%
-  td
+  display: flex
+  padding-right: 30px
+
+  div
+   width: 20%
+  p
    font-family: Open Sans
    font-size: 14px
    font-weight: 400
@@ -166,11 +170,16 @@
    letter-spacing: 0.13em
    text-align: left
    color: #505868
-
-
+.row-head
+ display: flex
 .campaigns-row
   width: 100%
-  td
+  display: flex
+  padding-right: 30px
+  padding-bottom: 10px
+  div
+   width: 20%
+  p
    font-family: Open Sans
    font-size: 12px
    font-weight: 500
@@ -188,15 +197,17 @@
   justify-content: center
   align-items: center
   position: relative
+  border: none
   p
    font-family: Open Sans
    font-size: 10px
+   width: 40px
    font-weight: 600
    line-height: 14px
    letter-spacing: 0em
-   text-align: left
+   text-align: start
    color: #FFFF
-   margin-left: 4px
+   margin-left: 16px
    height: 5px
 
 
@@ -208,7 +219,8 @@
   display: flex
   justify-content: center
   align-items: center
-  margin-left: -10px
+  margin-left: -42px
+  position: absolute
   mat-icon
    color:  #F1574D
    font-size: 12px
@@ -232,11 +244,8 @@
    margin-left: 1px
 
 .margin
-  margin-left: 15px
-.margin1
   position: relative
-  left: 23px
-
+  left: 15px
 
 .showMore-btn
  width: 100%
@@ -257,8 +266,3 @@
  display: flex
  justify-content: flex-start
  margin-left: 6px
-
-.table
- width: 100%  
- border-collapse: collapse
- overflow: scroll

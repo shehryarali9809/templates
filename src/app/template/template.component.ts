@@ -27,11 +27,12 @@ export class TemplateComponent implements OnInit {
     emailHead: emailTemplatesContent[key].emailHead,
     emailDesc: emailTemplatesContent[key].emailDesc,
   }));
-  rows = [
-    { date: '5 Feb-8:30 PM', target: 'Health care', status: 'Sent' },
-    { date: '20 Feb-10:00 AM', target: 'Business', status: 'Pending' },
-    { date: '20 Feb-10:00 AM', target: 'Business', status: 'Pending' },
-    { date: '20 Feb-10:00 AM', target: 'Business in Health Care', status: 'Pending' },
+  campaignsData = [
+    { id: 1, dateTime: '5 Feb-8:30 PM', target: 'Health care', statusColor: '#F1574D', icon: 'done', status: 'Sent' },
+    { id: 2, dateTime: '20 Feb-10:00 AM', target: 'Business', statusColor: '#505868', icon: 'close', status: 'Pending' },
+    { id: 3, dateTime: '20 Feb-10:00 AM', target: 'Business', statusColor: '#505868', icon: 'close', status: 'Pending' },
+    { id: 3, dateTime: '20 Feb-10:00 AM', target: 'Business in Health Care', statusColor: '#F1574D', icon: 'done', status: 'Sent' },
+
   ];
   @Input() percentage: number = 0;
   @Input() Spercentage: number = 0;

@@ -1,4 +1,4 @@
-import { Component ,OnInit,Input, } from '@angular/core';
+import { Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import { SidebarStateService } from '../shared.service';
 import { CommonModule } from '@angular/common';
@@ -22,8 +22,10 @@ export class ProgressbarComponent {
   constructor(private sidebarStateService: SidebarStateService) {}
 
   onCreateNewClick() {
-    this.sidebarStateService.showEditor();
-    this.sidebarStateService.loadTemplateContent('');
+
+      this.sidebarStateService.showEditor();
+      this.sidebarStateService.loadTemplateContent('');
+    
   }
   ngOnInit() {
     this.statusSubscription = this.sidebarStateService.status$.subscribe(status => {
@@ -31,9 +33,9 @@ export class ProgressbarComponent {
     });
     this.editorVisible$.subscribe(showEditor => {
       if (showEditor) {
-        this.sidebarStateService.updateStatus('Edit'); // Use the updateStatus method
+        this.sidebarStateService.updateStatus('Edit');
       } else {
-        this.sidebarStateService.updateStatus('Templates'); // Use the updateStatus method
+        this.sidebarStateService.updateStatus('Templates'); 
       }
     });
 

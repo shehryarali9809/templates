@@ -3,7 +3,7 @@
   <app-header></app-header>
   <app-sidebar></app-sidebar>
   <div class='templates-div' [ngStyle]="{'left':  (isOpen$ | async) ? '291px' : '0px'}">
-    <app-progressbar></app-progressbar>
+    <app-progressbar ></app-progressbar>
     <app-editor (contentSaved)="handleContentSave($event)"  *ngIf="editorVisible$ | async"></app-editor>
     <app-template *ngIf="templateVisible$ | async" [percentage]="80" [Spercentage]="30" [Ppercentage]="28" [Qpercentage]="70"></app-template>
     <app-recipients *ngIf="recipientsVisible$ | async"></app-recipients>
