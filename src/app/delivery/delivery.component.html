@@ -1,3 +1,90 @@
-<div class="card flex justify-content-center">
+<!-- <div class="card flex justify-content-center">
     <p-calendar [(ngModel)]="date"></p-calendar>
+</div> -->
+<div class="main-section">
+    <div class="delivery-schedule-div">
+        <div class="delivery-schedule">
+            <div class="delivery-schedule-header">
+                <p class="delivery-schedule-text">Scheduled Delivery</p>
+                <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+            </div>
+            <p class="delivery-schedule-desc">Users will be receive emails regularly according to the selected
+                frequency.</p>
+
+            <div *ngFor="let setting of settings; let i = index">
+                <div class="email-setting-btn" (click)="toggleSection(i)" [style.background-color]="activeSection === i ? '#F1574D' : '#D9D9D9'">
+                    <p [style.color]="activeSection === i ? '#FFFFFF' : '#505868'">{{ setting.name }}</p>
+                    <mat-icon [style.color]="activeSection === i ? '#FFFFFF' : '#505868'" [style.transform]="activeSection === i ? 'rotate(180deg)' : 'rotate(0deg)'">arrow_drop_down</mat-icon>
+                </div>
+                <div *ngIf="activeSection === i" class="content-box">
+                    <ng-container *ngIf="setting.name === 'Email Setting'">
+                       <p class="email-setting-text">From Name</p>
+                       <input  class="email-setting-input" placeholder="" />
+                       <p class="email-setting-text">From Email<span>*</span></p>
+                       <div class="email-setting-input-div">
+                        <input  class="email-setting-input" placeholder="" />
+                        <div class="email-setting-box"><mat-icon>keyboard_arrow_up</mat-icon></div>
+                       </div>
+                       <div class="email-setting-input-div">
+                        <input  class="email-setting-input" placeholder="" />
+                        <p class="email-setting-text" style="margin-top: 5px">&#64;</p>
+                        <input  class="email-setting-input" placeholder="" />
+                        <div class="email-setting-box" style="background:#808080"><mat-icon>keyboard_arrow_down</mat-icon></div>
+                       </div>
+                       <p class="email-setting-text">Reply To Email</p>
+                       <input  class="email-setting-input" placeholder="" />
+                       <p class="email-setting-text">Email Subject<span>*</span></p>
+                       <input  class="email-setting-input" placeholder="" />
+                      </ng-container>
+                      <ng-container *ngIf="setting.name === 'Completion Setting'">
+                        Content for Completion Setting
+                      </ng-container>
+                      <ng-container *ngIf="setting.name === 'Custom Mail Server'">
+                        Content for Custom Mail Server
+                      </ng-container>
+                      <ng-container *ngIf="setting.name === 'Tracking Setting'">
+                        Content for Tracking Setting
+                      </ng-container>
+                                  </div>
+            </div>
+            <p class="time-div-text">Delivery Time</p>
+            <div class="time-div">
+                <p>from</p>
+                <div class="time-div-input">
+                    <p-calendar [showTime]="true" [timeOnly]="true" hourFormat="12" [(ngModel)]="calendarVal1">
+                    </p-calendar>
+                </div>
+                <p>to</p>
+                <div class="time-div-input">
+                    <p-calendar [showTime]="true" [timeOnly]="true" hourFormat="12" [(ngModel)]="calendarVal2">
+                    </p-calendar>
+                </div>
+            </div>
+            <p class="time-div-text">Time Zone</p>
+            <p-dropdown [options]="timezone" [(ngModel)]="selectedTimezone" optionLabel="timezone" [showClear]="true" placeholder="EST (Eastern Standard Time)"></p-dropdown>
+
+        </div>
+
+    </div>
+    <div class="calendar-section">
+        <p class="calendar-section-p">Delivery Calendar </p>
+        <p-calendar class="max-w-full" [(ngModel)]="date" [inline]="true"></p-calendar>
+    </div>
+    <div class="radio-btn-div">
+        <div class="radio-btn">
+            <div class="align-items-center">
+                <p-radioButton name="DeliveryType" value="Current/Past Delivery" [(ngModel)]="DeliveryType"
+                    (click)="logSelectedValue(DeliveryType)"></p-radioButton>
+                <label for="DeliveryType1" class="label" (click)="logSelectedValue(DeliveryType)"
+                    [ngClass]="{'selected': DeliveryType === 'Current/Past Delivery'}">Current/Past Delivery</label>
+            </div>
+
+            <div class="align-items-center">
+                <p-radioButton name="DeliveryType" value="Future Delivery" [(ngModel)]="DeliveryType"
+                    (click)="logSelectedValue(DeliveryType)"></p-radioButton>
+                <label for="DeliveryType2" class="label" (click)="logSelectedValue(DeliveryType)"
+                    [ngClass]="{'selected': DeliveryType === 'Future Delivery'}">Future Delivery</label>
+            </div>
+        </div>
+    </div>
 </div>

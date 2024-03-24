@@ -7,6 +7,6 @@
     <app-editor (contentSaved)="handleContentSave($event)"  *ngIf="editorVisible$ | async"></app-editor>
     <app-template *ngIf="templateVisible$ | async" [percentage]="80" [Spercentage]="30" [Ppercentage]="28" [Qpercentage]="70"></app-template>
     <app-recipients *ngIf="recipientsVisible$ | async"></app-recipients>
-    <app-delivery *ngIf="deliveryVisible$ | async"></app-delivery>
+    <app-delivery *ngIf="deliveryVisible$ | async" class='app-delivery'></app-delivery>
   </div>
 </div>

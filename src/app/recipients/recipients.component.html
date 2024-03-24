@@ -7,15 +7,33 @@
             <div class="radio-btn">
                 <div class="align-items-center">
                     <p-radioButton name="recipientType" value="CSV/Excel" [(ngModel)]="recipientType" (click)="logSelectedValue(recipientType)"></p-radioButton>
-                    <label for="recipientType1" class="label">Add CSV/Excel Sheet</label>
+                    <label for="recipientType1" class="label" [ngClass]="{'selected': recipientType === 'CSV/Excel'}">Add CSV/Excel Sheet</label>
                 </div>
                 
                 <div class="align-items-center">
                     <p-radioButton name="recipientType" value="Manual" [(ngModel)]="recipientType" (click)="logSelectedValue(recipientType)"></p-radioButton>
-                    <label for="recipientType2" class="label">Manual Users</label>
+                    <label for="recipientType2" class="label" [ngClass]="{'selected': recipientType === 'Manual'}">Manual Users</label>
                 </div>
         </div>
         <p class="first-box-text">Select the audience you want to sent your email campaign. </p>
+
+        <div class="upload-btn" *ngIf="recipientType === 'CSV/Excel'">
+           <p>Upload CSV/Excel</p>
+        </div>
+       <div *ngIf="recipientType === 'Manual'">
+          <input class='manual-input'  type="text" placeholder="Enter Email" #emailInput (input)="onInputChange()" [formControl]="emailFormControl" (keyup.enter)="onEnter()">
+          <mat-icon *ngIf="showCancelIcon" (click)="clearInput()">cancel</mat-icon>
+          <div class="error-message" *ngIf="emailFormControl.hasError('email') && showError" class="error-message">
+            Please enter a valid email address.
+        </div>
+        </div>
+        
     </div>
+    <div>
+      <!-- <p>Entered Email Addresses:</p> -->
+      <ul>
+          <li *ngFor="let email of emailList">{{ email }}</li>
+      </ul>
+  </div>
   </div>
 </div>
