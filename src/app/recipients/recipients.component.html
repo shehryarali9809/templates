@@ -17,7 +17,7 @@
         </div>
         <p class="first-box-text">Select the audience you want to sent your email campaign. </p>
 
-        <div class="upload-btn" *ngIf="recipientType === 'CSV/Excel'">
+        <div class="upload-btn" *ngIf="recipientType === 'CSV/Excel'" (click)="openFileUpload()">
           <label for="fileUpload" class="file-upload-label">Upload CSV/Excel</label>
           <input type="file" id="fileUpload" (change)="onFileSelected($event)" style="display: none">
               </div>

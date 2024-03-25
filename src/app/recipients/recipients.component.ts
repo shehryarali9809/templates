@@ -46,10 +46,13 @@ export class RecipientsComponent {
         this.showError = true;
       }
     }
-    @ViewChild('fileUpload') fileUpload !: ElementRef;
+    @ViewChild('fileUpload') fileUpload: ElementRef | undefined;
     openFileUpload() {
-      this.fileUpload.nativeElement.click();
+      if (this.fileUpload) {
+        this.fileUpload.nativeElement.click();
+      }
     }
+  
   
     onFileSelected(event: any) {
       const file: File = event.target.files[0];
