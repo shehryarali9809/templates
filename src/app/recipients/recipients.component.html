@@ -2,7 +2,7 @@
   <div class="main-heading">
     <p>Add Recipients</p>
   </div>
-  <div>
+  <div class="add-email-div">
     <div class="first-box">
             <div class="radio-btn">
                 <div class="align-items-center">
@@ -18,7 +18,7 @@
         <p class="first-box-text">Select the audience you want to sent your email campaign. </p>
 
         <div class="upload-btn" *ngIf="recipientType === 'CSV/Excel'" (click)="openFileUpload()">
-          <label for="fileUpload" class="file-upload-label">Upload CSV/Excel</label>
+          <label for="fileUpload" class="file-upload-label" (click)="openFileUpload()">Upload CSV/Excel</label>
           <input type="file" id="fileUpload" (change)="onFileSelected($event)" style="display: none">
               </div>
        <div *ngIf="recipientType === 'Manual'">
@@ -30,11 +30,18 @@
         </div>
         
     </div>
-    <div>
-      <!-- <p>Entered Email Addresses:</p> -->
-      <ul>
-          <li *ngFor="let email of emailList">{{ email }}</li>
-      </ul>
+    <div class="email-box">
+      <tag-input [ngModel]="toEmails" [displayBy]="'label'" [identifyBy]="'label'" [theme]="'bootstrap'"
+      name="toEmails" placeholder="+ To" [separatorKeyCodes]="[32, 188]" secondaryPlaceholder="To"
+      [errorMessages]="errorMessages"  [removable]="true" [removable]="true" [validators]='validators' >
+      <tag-input-dropdown [dynamicUpdate]="false" [zIndex]="10000" [displayBy]="'label'"
+        [identifyBy]="'label'" [showDropdownIfEmpty]="true" >
+        <ng-template let-item="item" let-index="index">
+          {{ item.label }}
+        </ng-template>
+      </tag-input-dropdown>
+    </tag-input>
   </div>
+
   </div>
 </div>
