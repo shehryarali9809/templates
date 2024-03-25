@@ -57,21 +57,32 @@ export class AppComponent {
     const subjectMatch = subjectLine.match(/<div><strong>Subject: (.+?) <\/strong><\/div>/);
     const newSubject = subjectMatch ? subjectMatch[1] : null;
 
-    if (newSubject) {
-      const templateKey = Object.keys(emailTemplatesContent).find(key => emailTemplatesContent[key].emailHead === newSubject);
+    // if (newSubject) {
+    //   const templateKey = Object.keys(emailTemplatesContent).find(key => emailTemplatesContent[key].emailHead === newSubject);
 
-      if (templateKey) {
-        emailTemplatesContent[templateKey].content = updatedContent.split('\n');
-      } else {
-        emailTemplatesContent[newSubject] = {
+    //   if (templateKey) {
+    //     emailTemplatesContent[templateKey].content = updatedContent.split('\n');
+    //   } else {
+    //     emailTemplatesContent[newSubject] = {
+    //       imgSrc: '/assets/image1.png',
+    //       emailHead: newSubject,
+    //       emailDesc: 'New template based on editor content',
+    //       content: updatedContent.split('\n')
+    //     };
+    //   }
+    //   this.saveChangesToServer(emailTemplatesContent);
+    // }
+    if (newSubject) {
+      const newTemplate = {
           imgSrc: '/assets/image1.png',
           emailHead: newSubject,
           emailDesc: 'New template based on editor content',
           content: updatedContent.split('\n')
-        };
-      }
+      };
+
+      emailTemplatesContent[newSubject] = newTemplate;
       this.saveChangesToServer(emailTemplatesContent);
-    }
+  }
   }
   saveChangesToServer(updatedTemplates: any) {
     console.log('Updated templates sent to server:', updatedTemplates);

@@ -4,7 +4,7 @@
       <img src='/assets/email-temp.png' alt='' />
       <p>Email Templates</p>
     </div>
-    <div class="email-templates">
+    <div class="email-templates"  #templateContainer>
       <div class="emails" *ngFor="let template of displayedTemplates" (click)="loadTemplate(template.emailHead)">
         <img [src]="template.imgSrc" alt="" />
         <div class="emails-text">

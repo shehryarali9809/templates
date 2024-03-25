@@ -1,4 +1,4 @@
-import { Component ,OnInit,Input, } from '@angular/core';
+import { Component ,OnInit,Input,ViewChild,ElementRef , HostListener} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import { NgChartsModule } from 'ng2-charts';
 import { SidebarStateService } from '../shared.service';
@@ -39,22 +39,41 @@ export class TemplateComponent implements OnInit {
   @Input() Ppercentage: number = 0;
   @Input() Qpercentage: number = 0;
   isOpen$ = this.sidebarStateService.isOpen$;
+  @ViewChild('templateContainer') templateContainer !: ElementRef;
+  templatesPerLine: number = 3;
 
   displayedTemplates: EmailTemplate[] = [];
   showAll = false; 
   buttonText = 'Show More';
   constructor(private http: HttpClient, private sidebarStateService: SidebarStateService) {
-  this.displayedTemplates = this.emailTemplates.slice(0, 6);
-
-  }
+    setTimeout(() => {
+      this.calculateTemplatesPerLine();
+      const totalTemplatesToDisplay = this.templatesPerLine * 2;
+      this.displayedTemplates = this.emailTemplates.slice(0, totalTemplatesToDisplay);
+    });
+  
+    }
   shouldShowButton(): boolean {
-    return this.emailTemplates.length > 6;
+    const totalTemplatesToDisplay = this.templatesPerLine * 2;
+    return this.emailTemplates.length > totalTemplatesToDisplay;
   }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.calculateTemplatesPerLine();
+  }
+  calculateTemplatesPerLine() {
+    const containerWidth = this.templateContainer.nativeElement.clientWidth;
+    const templateWidth = 305;
+    this.templatesPerLine = Math.floor(containerWidth / templateWidth);
+    }
+
   toggleShowAll() {
     this.showAll = !this.showAll;
-    this.displayedTemplates = this.showAll ? this.emailTemplates : this.emailTemplates.slice(0, 6);
+    const totalTemplatesToDisplay = this.templatesPerLine * 2;
+    this.displayedTemplates = this.showAll ? this.emailTemplates : this.emailTemplates.slice(0, totalTemplatesToDisplay);
     this.buttonText = this.showAll ? 'Show Less' : 'Show More';
-  }
+    }
   async loadTemplate(templateKey: string) {
     let templateContent = `<p>Content of ${templateKey} not found</p>`;
       const template = emailTemplatesContent[templateKey];

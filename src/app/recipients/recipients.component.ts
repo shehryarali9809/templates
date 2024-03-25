@@ -23,6 +23,7 @@ export class RecipientsComponent {
   logSelectedValue(value: string | null): void {
     console.log('Selected Value:', value);
   }
+
   @ViewChild('emailInput') emailInput! : ElementRef;
 
     constructor() {}
@@ -45,5 +46,22 @@ export class RecipientsComponent {
         this.showError = true;
       }
     }
-    
+    @ViewChild('fileUpload') fileUpload !: ElementRef;
+    openFileUpload() {
+      this.fileUpload.nativeElement.click();
+    }
+  
+    onFileSelected(event: any) {
+      const file: File = event.target.files[0];
+      
+      if (file) {
+        if (file.type === 'application/vnd.ms-excel' || file.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+          // File type is CSV or Excel
+          // Process the file here
+          console.log('File uploaded:', file);
+        } else {
+          alert('Please upload a CSV or Excel file.');
+        }
+      }
+    }  
 }

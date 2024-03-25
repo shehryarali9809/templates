@@ -33,7 +33,7 @@ export const emailTemplatesContent: EmailTemplatesContent = {
     emailHead: 'Job Application Follow-Up',
     emailDesc: 'Template for following up on a job application after submitting a resume and cover letter.',
     content: [
-      "<div><strong>Subject: Job Application Follow-Up</strong></div>",
+      "<div><strong>Subject: Job Application Follow-Up </strong></div>",
       "<br>",
       "<div><strong>Hello,</strong></div>",
       "<div>Thank you for applying for [Job Title] at [Company]. We wanted to let you know that your application is currently under review.</div>",
@@ -63,7 +63,7 @@ export const emailTemplatesContent: EmailTemplatesContent = {
     emailHead: 'Contract Renewal Reminder',
     emailDesc: 'Template for reminding clients or customers about an upcoming contract renewal date.',
     content: [
-      "<div><strong>Subject: Contract Renewal Reminder</strong></div>",
+      "<div><strong>Subject: Contract Renewal Reminder </strong></div>",
       "<br>",
       "<div><strong>Hello,</strong></div>",
       "<div>This is a friendly reminder that your contract with [Service/Product] is due for renewal on [Renewal Date].</div>",
@@ -119,4 +119,6 @@ export const emailTemplatesContent: EmailTemplatesContent = {
       "<div>[Your Email]</div>"
     ]
   }
+  
+
 };

@@ -18,8 +18,9 @@
         <p class="first-box-text">Select the audience you want to sent your email campaign. </p>
 
         <div class="upload-btn" *ngIf="recipientType === 'CSV/Excel'">
-           <p>Upload CSV/Excel</p>
-        </div>
+          <label for="fileUpload" class="file-upload-label">Upload CSV/Excel</label>
+          <input type="file" id="fileUpload" (change)="onFileSelected($event)" style="display: none">
+              </div>
        <div *ngIf="recipientType === 'Manual'">
           <input class='manual-input'  type="text" placeholder="Enter Email" #emailInput (input)="onInputChange()" [formControl]="emailFormControl" (keyup.enter)="onEnter()">
           <mat-icon *ngIf="showCancelIcon" (click)="clearInput()">cancel</mat-icon>
